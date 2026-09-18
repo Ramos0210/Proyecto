@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Mi racha</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --fondo: #000000;
+    --texto: #f2f2ee;
+    --suave: #9a9a94;
+    --lima: #c8f52a;
+    --linea: #24241f;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    background: var(--fondo);
+    color: var(--texto);
+    font-family: "Archivo", system-ui, -apple-system, "Segoe UI", sans-serif;
+    line-height: 1.6;
+  }
+  a:focus-visible, button:focus-visible { outline: 3px solid var(--lima); outline-offset: 3px; }
+
+  .portada {
+    position: relative;
+    min-height: 88vh;
+    display: flex;
+    align-items: flex-end;
+    background: #111 url("img/portada.jpg") center / cover no-repeat;
+  }
+  .portada::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, #000 8%, rgba(0,0,0,.35) 60%, rgba(0,0,0,.1));
+  }
+  .portada-contenido {
+    position: relative;
+    width: 100%;
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 0 1.5rem 2.5rem;
+  }
+  .numero {
+    font-size: clamp(7rem, 34vw, 15rem);
+    font-weight: 900;
+    font-stretch: 125%;
+    line-height: .85;
+    letter-spacing: -.04em;
+    color: var(--lima);
+  }
+  .etiqueta {
+    margin-top: .75rem;
+    font-size: 1.25rem;
+    font-weight: 600;
+  }
+
+  main { max-width: 720px; margin: 0 auto; padding: 0 1.5rem; }
+  .historia { padding: 3rem 0 2rem; max-width: 60ch; }
+  .historia h2 {
+    font-size: 1.75rem;
+    font-weight: 800;
+    line-height: 1.2;
+    margin-bottom: 1rem;
+  }
+  .historia p { color: var(--suave); font-size: 1.05rem; }
+  .historia p + p { margin-top: 1rem; }
+
+  .galeria {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: .75rem;
+    padding: 1rem 0 3rem;
+  }
+  .galeria figure {
+    aspect-ratio: 4 / 5;
+    background: #111;
+    border-radius: 6px;
+    overflow: hidden;
+  }
+  .galeria img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+  footer {
+    border-top: 1px solid var(--linea);
+    padding: 1.5rem;
+    text-align: center;
+    color: var(--suave);
+    font-size: .9rem;
+  }
+
+  @media (min-width: 720px) {
+    .galeria { grid-template-columns: repeat(4, 1fr); }
+    .galeria figure { aspect-ratio: 3 / 4; }
+  }
+</style>
+</head>
+<body>
+
+<header class="portada">
+  <div class="portada-contenido">
+    <p class="numero">18</p>
+    <p class="etiqueta">días seguidos</p>
+  </div>
+</header>
+
+<main>
+  <section class="historia">
+    <h2>Un día a la vez</h2>
+    <p>Aquí va tu texto. Cuenta cuándo empezaste, qué te propusiste y qué has aprendido en estos días. Cámbialo por el tuyo.</p>
+    <p>Puedes escribir otro párrafo con lo que sigue: tu próxima meta o lo que quieres lograr.</p>
+  </section>
+
+  <section class="galeria" aria-label="Fotos">
+    <figure><img src="img/foto1.jpg" alt="Foto 1" onerror="this.parentNode.style.display='none'"></figure>
+    <figure><img src="img/foto2.jpg" alt="Foto 2" onerror="this.parentNode.style.display='none'"></figure>
+    <figure><img src="img/foto3.jpg" alt="Foto 3" onerror="this.parentNode.style.display='none'"></figure>
+    <figure><img src="img/foto4.jpg" alt="Foto 4" onerror="this.parentNode.style.display='none'"></figure>
+  </section>
+</main>
+
+<footer>Hecho por elliz343</footer>
+
+</body>
+</html>
