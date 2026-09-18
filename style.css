@@ -1,0 +1,159 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #0b0b0b;
+    color: white;
+    line-height: 1.6;
+}
+
+header {
+    background: #111111;
+    padding: 25px 8%;
+    border-bottom: 2px solid #b7ff00;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    color: #b7ff00;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+    gap: 25px;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+nav a:hover {
+    color: #b7ff00;
+}
+
+.hero {
+    min-height: 80vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 40px 20px;
+}
+
+.hero h1 {
+    font-size: 60px;
+    margin-bottom: 15px;
+}
+
+.hero h1 span {
+    color: #b7ff00;
+}
+
+.hero p {
+    max-width: 650px;
+    color: #cccccc;
+    font-size: 18px;
+}
+
+.boton {
+    display: inline-block;
+    margin-top: 25px;
+    padding: 12px 25px;
+    background: #b7ff00;
+    color: #000000;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 8px;
+}
+
+.boton:hover {
+    background: white;
+}
+
+section {
+    padding: 70px 8%;
+}
+
+.titulo {
+    text-align: center;
+    color: #b7ff00;
+    font-size: 35px;
+    margin-bottom: 40px;
+}
+
+.tarjetas {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+}
+
+.tarjeta {
+    background: #151515;
+    border: 1px solid #333333;
+    border-radius: 12px;
+    padding: 25px;
+    transition: 0.3s;
+}
+
+.tarjeta:hover {
+    transform: translateY(-8px);
+    border-color: #b7ff00;
+}
+
+.tarjeta h3 {
+    color: #b7ff00;
+    margin-bottom: 10px;
+}
+
+.tarjeta p {
+    color: #cccccc;
+}
+
+footer {
+    text-align: center;
+    padding: 30px;
+    background: #111111;
+    border-top: 1px solid #333333;
+    color: #aaaaaa;
+}
+
+@media (max-width: 768px) {
+
+    nav {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    nav ul {
+        gap: 12px;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .hero h1 {
+        font-size: 40px;
+    }
+
+    .tarjetas {
+        grid-template-columns: 1fr;
+    }
+
+    section {
+        padding: 50px 20px;
+    }
+}
