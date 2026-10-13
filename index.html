@@ -3,37 +3,225 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Mi racha</title>
+<title>Constancia</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css">
-  
+<style>
+  :root {
+    --fondo: #0b0b09;
+    --panel: #111110;
+    --texto: #f2f2ee;
+    --suave: #b7b7b0;
+    --lima: #c8f52a;
+    --linea: #24241f;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    background: var(--fondo);
+    color: var(--texto);
+    font-family: "Archivo", system-ui, -apple-system, "Segoe UI", sans-serif;
+    line-height: 1.6;
+  }
+  a { color: inherit; text-decoration: none; }
+  a:focus-visible, button:focus-visible { outline: 3px solid var(--lima); outline-offset: 3px; }
+  img { display: block; max-width: 100%; }
+
+  header.barra {
+    background: #fff;
+    color: #111;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem 1.25rem;
+  }
+  .logo { font-weight: 800; font-size: 1.15rem; font-stretch: 120%; }
+  .boton-header {
+    background: #111;
+    color: #fff;
+    font-size: .8rem;
+    font-weight: 700;
+    padding: .55rem 1rem;
+    border-radius: 999px;
+  }
+
+  .hero {
+    position: relative;
+    background: #000 url("img/portada.jpg") center / cover no-repeat;
+    min-height: 74vh;
+    display: flex;
+    align-items: center;
+  }
+  .hero::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(100deg, #000 40%, rgba(0,0,0,.55) 65%, rgba(0,0,0,.15));
+  }
+  .hero-contenido {
+    position: relative;
+    max-width: 720px;
+    padding: 2.5rem 1.25rem;
+  }
+  .hero-titulo {
+    font-size: clamp(2.6rem, 11vw, 4.5rem);
+    font-weight: 900;
+    font-stretch: 125%;
+    line-height: .95;
+    letter-spacing: -.02em;
+    color: var(--lima);
+    text-transform: uppercase;
+  }
+  .hero-sub {
+    margin-top: .9rem;
+    font-size: clamp(1.1rem, 4.5vw, 1.6rem);
+    font-weight: 800;
+    text-transform: uppercase;
+    color: #fff;
+  }
+  .boton-lima {
+    display: inline-block;
+    margin-top: 1.75rem;
+    background: var(--lima);
+    color: #111;
+    font-weight: 700;
+    font-size: .95rem;
+    padding: .8rem 1.6rem;
+    border-radius: 8px;
+  }
+
+  .seccion-clara {
+    background: #fff;
+    color: #111;
+    padding: 3rem 1.25rem;
+  }
+  .seccion-clara h2 {
+    text-align: center;
+    font-size: clamp(1.4rem, 5vw, 2rem);
+    font-weight: 900;
+    text-transform: uppercase;
+    margin-bottom: 2rem;
+  }
+  .galeria {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.25rem 1rem;
+  }
+  .galeria figure { border-radius: 4px; overflow: hidden; }
+  .galeria img {
+    width: 100%;
+    aspect-ratio: 4 / 5;
+    object-fit: cover;
+    filter: grayscale(1);
+  }
+  .galeria figcaption {
+    margin-top: .6rem;
+    font-size: .82rem;
+    color: #444;
+  }
+  .galeria figcaption strong {
+    display: block;
+    color: #111;
+    font-weight: 700;
+    margin-bottom: .15rem;
+  }
+
+  .estadistica {
+    background: var(--panel);
+    padding: 3.5rem 1.25rem;
+    display: grid;
+    gap: 2rem;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+  .estadistica .etiqueta {
+    color: var(--lima);
+    font-style: italic;
+    font-weight: 600;
+    font-size: 1rem;
+  }
+  .estadistica .numero {
+    font-size: clamp(4.5rem, 24vw, 8rem);
+    font-weight: 900;
+    font-stretch: 125%;
+    line-height: .85;
+    color: var(--lima);
+    margin-top: .25rem;
+  }
+  .estadistica .texto h3 {
+    font-size: 1.4rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    margin-bottom: .9rem;
+  }
+  .estadistica .texto p { color: var(--suave); font-size: 1rem; }
+  .estadistica .texto p + p { margin-top: 1rem; }
+
+  footer {
+    border-top: 1px solid var(--linea);
+    padding: 1.5rem;
+    text-align: center;
+    color: var(--suave);
+    font-size: .85rem;
+  }
+
+  @media (min-width: 680px) {
+    .galeria { grid-template-columns: repeat(4, 1fr); }
+    .estadistica { grid-template-columns: 1fr 1.4fr; align-items: center; }
+  }
+</style>
 </head>
-  
 <body>
 
-<header class="portada">
-  <div class="portada-contenido">
-    <p class="numero">18</p>
-    <p class="etiqueta">días seguidos</p>
-  </div>
+<header class="barra">
+  <span class="logo">Constancia</span>
+  <a class="boton-header" href="#estadistica">Mi progreso &gt;</a>
 </header>
 
-<main>
-  <section class="historia">
-    <h2>Un día a la vez</h2>
-    <p>Aquí va tu texto. Cuenta cuándo empezaste, qué te propusiste y qué has aprendido en estos días. Cámbialo por el tuyo.</p>
-    <p>Puedes escribir otro párrafo con lo que sigue: tu próxima meta o lo que quieres lograr.</p>
-  </section>
+<section class="hero">
+  <div class="hero-contenido">
+    <p class="hero-titulo">Construye<br>el hábito</p>
+    <p class="hero-sub">Disciplina que se entrena</p>
+    <a class="boton-lima" href="#estadistica">Ver racha &gt;</a>
+  </div>
+</section>
 
-  <section class="galeria" aria-label="Fotos">
-    <figure><img src="img/foto1.jpg" alt="Foto 1" onerror="this.parentNode.style.display='none'"></figure>
-    <figure><img src="img/foto2.jpg" alt="Foto 2" onerror="this.parentNode.style.display='none'"></figure>
-    <figure><img src="img/foto3.jpg" alt="Foto 3" onerror="this.parentNode.style.display='none'"></figure>
-    <figure><img src="img/foto4.jpg" alt="Foto 4" onerror="this.parentNode.style.display='none'"></figure>
-  </section>
-</main>
+<section class="seccion-clara">
+  <h2>Construye el hábito</h2>
+  <div class="galeria">
+    <figure>
+      <img src="img/foto1.jpg" alt="Foto 1" onerror="this.closest('figure').style.display='none'">
+      <figcaption><strong>Cambia esto</strong>Escribe aquí lo que quieras contar de esta foto.</figcaption>
+    </figure>
+    <figure>
+      <img src="img/foto2.jpg" alt="Foto 2" onerror="this.closest('figure').style.display='none'">
+      <figcaption><strong>Cambia esto</strong>Escribe aquí lo que quieras contar de esta foto.</figcaption>
+    </figure>
+    <figure>
+      <img src="img/foto3.jpg" alt="Foto 3" onerror="this.closest('figure').style.display='none'">
+      <figcaption><strong>Cambia esto</strong>Escribe aquí lo que quieras contar de esta foto.</figcaption>
+    </figure>
+    <figure>
+      <img src="img/foto4.jpg" alt="Foto 4" onerror="this.closest('figure').style.display='none'">
+      <figcaption><strong>Cambia esto</strong>Escribe aquí lo que quieras contar de esta foto.</figcaption>
+    </figure>
+  </div>
+</section>
+
+<section class="estadistica" id="estadistica">
+  <div>
+    <p class="etiqueta">Mi racha actual</p>
+    <p class="numero">18</p>
+  </div>
+  <div class="texto">
+    <h3>Disciplina que se entrena</h3>
+    <p>Aquí va tu texto: cuenta cuándo empezaste, qué te propusiste y qué has aprendido en estos días.</p>
+    <p>Escribe otro párrafo con tu próxima meta o lo que quieres lograr.</p>
+  </div>
+</section>
 
 <footer>Hecho por elliz343</footer>
 
